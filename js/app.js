@@ -35,6 +35,8 @@ var externalLinkHander = function(e) {
       e.preventDefault();
       var data = { event: 'externalLink', eventName: 'externalLink', href: e.currentTarget.href };
       postAndLog(data);
+      localStorage.setItem('nohs:openExternal', e.currentTarget.href);
+      console.log(localStorage.getItem('nohs:openExternal'));
     }
   } else {
     console.warn('did not post, window.parent was unavailable')
