@@ -349,6 +349,18 @@
   }
   
 
-  div {
+  div.button-wrapper {
     margin: 10px;
+  }
+
+  div.title-wrapper {
+    border: 2px solid black;
+    margin: 25px;
+  }
+
+  div.title-wrapper > h1 {
+    background: white;
+    margin-left: 5px;
+    margin-top: -23px;
+    width: 195px;
   }
