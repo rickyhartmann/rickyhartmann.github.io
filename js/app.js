@@ -26,3 +26,23 @@ function postAndLog(data) {
     console.warn('did not post, window or window.parent was unavailable');
   }
 }
+
+var externalLinkHander = function(e) {
+  if (window.parent) {
+    console.log(e);
+    console.log(e.currentTarget);
+    if (e.currentTarget.href) {
+      e.preventDefault();
+      var data = { event: 'externalLink', eventName: 'externalLink', href: e.currentTarget.href };
+      postAndLog(data);
+    }
+  } else {
+    console.warn('did not post, window.parent was unavailable')
+  }
+}
+
+var classname = document.getElementsByClassName('external-link');
+for (var i = 0; i < classname.length; i++) {
+  classname[i].removeEventListener('click', externalLinkHander, false);
+  classname[i].addEventListener('click', externalLinkHander, false);
+}
